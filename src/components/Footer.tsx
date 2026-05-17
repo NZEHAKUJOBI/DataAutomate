@@ -1,4 +1,5 @@
-import { BarChart3, ExternalLink, Share2, Code2, Mail } from 'lucide-react';
+import { ExternalLink, Share2, Code2, Mail } from 'lucide-react';
+import logo from '../assets/logo.png';
 import './Footer.css';
 
 const links = {
@@ -15,8 +16,7 @@ export default function Footer() {
         <div className="footer__top">
           <div className="footer__brand">
             <div className="footer__logo">
-              <div className="footer__logo-icon"><BarChart3 size={20} /></div>
-              <span>Data<strong>Automate</strong></span>
+              <img src={logo} alt="DataAutomate" className="footer__logo-img" />
             </div>
             <p className="footer__tagline">
               Unifying organisational data into automated, live dashboards — so every

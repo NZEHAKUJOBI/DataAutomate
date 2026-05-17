@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, BarChart3 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.png';
 import './Navbar.css';
 
 const navLinks = [
@@ -25,10 +26,7 @@ export default function Navbar() {
     <nav className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="container navbar__inner">
         <a href="#home" className="navbar__logo">
-          <div className="navbar__logo-icon">
-            <BarChart3 size={20} />
-          </div>
-          <span>Data<strong>Automate</strong></span>
+          <img src={logo} alt="DataAutomate" className="navbar__logo-img" />
         </a>
 
         <ul className={`navbar__links${open ? ' navbar__links--open' : ''}`}>
