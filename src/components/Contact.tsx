@@ -3,9 +3,9 @@ import { Mail, Phone, MapPin, Send, CheckCircle, BarChart3 } from 'lucide-react'
 import './Contact.css';
 
 const contactInfo = [
-  { icon: <Mail size={18} />, label: 'Email', value: 'hello@dataautomate.io' },
-  { icon: <Phone size={18} />, label: 'Phone', value: '+1 (800) DATA-AUTO' },
-  { icon: <MapPin size={18} />, label: 'Head Office', value: 'London · New York · Lagos · Singapore' },
+  { icon: <Mail size={18} />, label: 'Email', value: 'Ifeanyi@dataautomate.io' },
+  { icon: <Phone size={18} />, label: 'Phone', value: '+234 806 453 7631' },
+  // { icon: <MapPin size={18} />, label: 'Head Office', value: 'London · New York · Lagos · Singapore' },
 ];
 
 type FormState = { name: string; company: string; email: string; industry: string; message: string };
@@ -48,7 +48,7 @@ export default function Contact() {
               </div>
             ))}
           </div>
-
+{/* 
           <div className="contact__trust">
             <div className="contact__trust-badge">
               <CheckCircle size={14} />
@@ -62,7 +62,7 @@ export default function Contact() {
               <CheckCircle size={14} />
               <span>SOC 2 certified</span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="contact__right">
