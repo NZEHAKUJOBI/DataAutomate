@@ -62,8 +62,8 @@ export default function Industries() {
             Built for Every <span className="gradient-text">Data-Driven</span> Sector
           </h2>
           <p className="industries__subtitle">
-            DataAutomate adapts to the unique data landscape of your industry, delivering
-            pre-built connectors, templates, and KPIs out of the box.
+            DataAutomate adapts to your industry's unique data landscape — with pre-built
+            connectors, templates, and KPIs out of the box.
           </p>
         </div>
 

@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, BarChart3 } from 'lucide-react';
+import { Mail, Phone, CheckCircle, BarChart3 } from 'lucide-react';
 import './Contact.css';
 
+const destinationEmail = 'Ifeanyi@dataautomate.io';
+const formEndpoint = `https://formsubmit.co/${destinationEmail}`;
+
 const contactInfo = [
-  { icon: <Mail size={18} />, label: 'Email', value: 'Ifeanyi@dataautomate.io' },
+  { icon: <Mail size={18} />, label: 'Email', value: destinationEmail },
   { icon: <Phone size={18} />, label: 'Phone', value: '+234 806 453 7631' },
   // { icon: <MapPin size={18} />, label: 'Head Office', value: 'London · New York · Lagos · Singapore' },
 ];
@@ -13,14 +16,49 @@ type FormState = { name: string; company: string; email: string; industry: strin
 export default function Contact() {
   const [form, setForm] = useState<FormState>({ name: '', company: '', email: '', industry: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError('');
+    setSending(true);
+
+    try {
+      const payload = new FormData();
+      payload.append('name', form.name);
+      payload.append('company', form.company);
+      payload.append('email', form.email);
+      payload.append('industry', form.industry);
+      payload.append('message', form.message);
+      payload.append('_subject', `New DataAutomate demo request from ${form.name}`);
+      payload.append('_template', 'table');
+      payload.append('_captcha', 'false');
+      payload.append('_autoresponse', 'Thanks for reaching out to DataAutomate. We received your request and will contact you soon.');
+
+      const response = await fetch(formEndpoint, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: payload,
+      });
+
+      if (!response.ok) {
+        throw new Error('Something went wrong while sending your message.');
+      }
+
+      setSubmitted(true);
+      setForm({ name: '', company: '', email: '', industry: '', message: '' });
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : 'Unable to send your message right now.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -48,7 +86,7 @@ export default function Contact() {
               </div>
             ))}
           </div>
-{/* 
+
           <div className="contact__trust">
             <div className="contact__trust-badge">
               <CheckCircle size={14} />
@@ -62,7 +100,7 @@ export default function Contact() {
               <CheckCircle size={14} />
               <span>SOC 2 certified</span>
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="contact__right">
@@ -84,26 +122,28 @@ export default function Contact() {
                 <span>Request a Demo</span>
               </div>
 
+              <input type="hidden" name="_next" value={window.location.href} />
+
+              <div className="contact__field">
+                <label htmlFor="name">Full Name *</label>
+                <input id="name" name="name" type="text" placeholder="Jane Doe" value={form.name} onChange={handleChange} required />
+              </div>
+
               <div className="contact__form-row">
-                <div className="contact__field">
-                  <label htmlFor="name">Full Name *</label>
-                  <input id="name" name="name" type="text" placeholder="Jane Smith" value={form.name} onChange={handleChange} required />
-                </div>
                 <div className="contact__field">
                   <label htmlFor="company">Company *</label>
                   <input id="company" name="company" type="text" placeholder="Acme Corp" value={form.company} onChange={handleChange} required />
                 </div>
-              </div>
-
-              <div className="contact__field">
-                <label htmlFor="email">Work Email *</label>
-                <input id="email" name="email" type="email" placeholder="jane@acmecorp.com" value={form.email} onChange={handleChange} required />
+                <div className="contact__field">
+                  <label htmlFor="email">Work Email *</label>
+                  <input id="email" name="email" type="email" placeholder="you@acme.com" value={form.email} onChange={handleChange} required />
+                </div>
               </div>
 
               <div className="contact__field">
                 <label htmlFor="industry">Industry</label>
                 <select id="industry" name="industry" value={form.industry} onChange={handleChange}>
-                  <option value="">Select your industry…</option>
+                  <option value="">Select your industry...</option>
                   <option value="healthcare">Healthcare</option>
                   <option value="finance">Finance & Banking</option>
                   <option value="logistics">Logistics & Supply Chain</option>
@@ -116,12 +156,13 @@ export default function Contact() {
 
               <div className="contact__field">
                 <label htmlFor="message">Tell us about your data challenge</label>
-                <textarea id="message" name="message" placeholder="We have data in 5 different systems and can't get a single view of…" rows={4} value={form.message} onChange={handleChange} />
+                <textarea id="message" name="message" placeholder="What systems are you trying to unify?" rows={4} value={form.message} onChange={handleChange} />
               </div>
 
+              {error ? <p className="contact__form-error">{error}</p> : null}
+
               <button type="submit" className="contact__submit">
-                <Send size={16} />
-                Request Free Demo
+                {sending ? 'Sending...' : 'Request Free Demo'}
               </button>
 
               <p className="contact__form-footer">

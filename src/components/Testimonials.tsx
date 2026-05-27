@@ -61,10 +61,6 @@ export default function Testimonials() {
           <h2 className="section-heading">
             Trusted by <span className="gradient-text">Industry Leaders</span>
           </h2>
-          <p className="testimonials__subtitle">
-            Organisations across every sector rely on DataAutomate to unify their data
-            and drive measurable business outcomes.
-          </p>
         </div>
 
         <div className="testimonials__grid">

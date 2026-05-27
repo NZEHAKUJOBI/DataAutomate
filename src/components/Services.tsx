@@ -5,43 +5,43 @@ const services = [
   {
     icon: <Database size={24} />,
     color: 'blue',
-    title: 'Data Integration',
-    desc: 'Connect every data source in your organisation — databases, APIs, flat files, and cloud services — into one unified pipeline without writing a single line of code.',
-    features: ['50+ native connectors', 'Real-time & batch modes', 'Conflict resolution'],
+    title: 'Pain-Point Discovery',
+    desc: 'We sit with your team, map the workflows that hurt most, and pinpoint where lost hours, errors, or missed revenue are quietly piling up — before writing a single line of code.',
+    features: ['Process audit & shadowing', 'Bottleneck scoring', 'ROI-first roadmap'],
   },
   {
     icon: <BarChart2 size={24} />,
     color: 'purple',
-    title: 'Automated Dashboards',
-    desc: 'Create self-updating dashboards that reflect live business data. Drag-and-drop widgets, custom KPIs, and pixel-perfect charts all rendered automatically.',
-    features: ['No-code dashboard builder', 'Custom KPI formulas', '15+ chart types'],
+    title: 'Analytics That Decide',
+    desc: 'Every automation ships with the lightweight analytics layer it needs — KPIs, alerts, and dashboards that prove the pain is gone and surface the next one to tackle.',
+    features: ['Outcome-focused KPIs', 'Live status dashboards', 'Anomaly alerts'],
   },
   {
     icon: <RefreshCw size={24} />,
     color: 'cyan',
-    title: 'Pipeline Automation',
-    desc: 'Schedule, monitor, and manage your data pipelines end-to-end. From ingestion to transformation to delivery — all orchestrated on a single visual canvas.',
-    features: ['Visual pipeline editor', 'Cron & event triggers', 'Error recovery'],
+    title: 'Workflow Automation',
+    desc: 'We replace the spreadsheets, copy-paste rituals, and after-hours data wrangling with reliable automations that run quietly in the background — and never miss a step.',
+    features: ['End-to-end orchestration', 'Cron & event triggers', 'Self-healing retries'],
   },
   {
     icon: <Bell size={24} />,
     color: 'yellow',
-    title: 'Smart Alerts & Reports',
-    desc: 'Set threshold-based or AI-driven alerts that notify your team the moment something deviates from plan. Deliver automated reports to any channel.',
-    features: ['Anomaly detection AI', 'Multi-channel delivery', 'PDF/CSV export'],
+    title: 'Automated Reports & Alerts',
+    desc: 'Stop chasing weekly status emails. The right report lands in the right inbox, Slack channel, or WhatsApp group — and the right person gets paged the moment numbers drift.',
+    features: ['Scheduled deliveries', 'Threshold & AI alerts', 'PDF / CSV / Slack / WhatsApp'],
   },
   {
     icon: <Cpu size={24} />,
     color: 'green',
-    title: 'AI & Forecasting',
-    desc: 'Overlay machine learning models on your data streams to predict trends, identify patterns, and surface insights before they become problems.',
-    features: ['Time-series forecasting', 'Pattern recognition', 'NLP query engine'],
+    title: 'Predictive Intelligence',
+    desc: 'Layer lightweight ML on top of your automations to predict demand, churn, or downtime — so your team acts on tomorrow\'s pain today, not next quarter\'s post-mortem.',
+    features: ['Demand & churn forecasts', 'Anomaly detection', 'Plain-English insights'],
   },
   {
     icon: <Shield size={24} />,
     color: 'red',
-    title: 'Governance & Security',
-    desc: 'Enterprise-grade security with row-level permissions, full audit trails, SOC 2 compliance, and data lineage tracking across every pipeline.',
+    title: 'Secure by Design',
+    desc: 'Every solution we build is wrapped in role-based access, full audit trails, and compliance-ready controls — because automation should reduce risk, not add to it.',
     features: ['Row-level access control', 'Full audit trail', 'SOC 2 / GDPR ready'],
   },
 ];
@@ -53,11 +53,13 @@ export default function Services() {
         <div className="services__header">
           <div className="section-badge">What We Do</div>
           <h2 className="section-heading">
-            Everything You Need to <span className="gradient-text">Automate Data</span>
+            From <span className="gradient-text">pain point to automation</span>
+            <br />
+            — with analytics built in
           </h2>
           <p className="services__subtitle">
-            From raw ingestion to polished dashboards, DataAutomate covers the full data
-            lifecycle so your analysts focus on insights — not infrastructure.
+            We pair hands-on workflow automation with a lightweight analytics layer, so every
+            solution we ship pays for itself and proves it in numbers.
           </p>
         </div>
 

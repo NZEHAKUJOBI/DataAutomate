@@ -2,10 +2,10 @@ import { ArrowRight, Play, TrendingUp, Database, Zap } from 'lucide-react';
 import './Hero.css';
 
 const stats = [
-  { value: '10x', label: 'Faster Insights' },
-  { value: '98%', label: 'Data Accuracy' },
-  { value: '500+', label: 'Dashboards Built' },
-  { value: '50+', label: 'Enterprise Clients' },
+  { value: '10x', label: 'Faster Resolution' },
+  { value: '70%', label: 'Manual Work Removed' },
+  { value: '200+', label: 'Pain Points Solved' },
+  { value: '50+', label: 'Organisations Served' },
 ];
 
 export default function Hero() {
@@ -20,22 +20,25 @@ export default function Hero() {
         <div className="hero__content">
           <div className="hero__badge">
             <Zap size={13} />
-            <span>Intelligent Data Automation Platform</span>
+            <span>Automation with a touch of analytics</span>
           </div>
 
           <h1 className="hero__title">
-            Transform Your Data Into
-            <span className="hero__title-highlight"> Automated Intelligence</span>
+            Automate the work
+            <br />
+            that <span className="hero__title-highlight">hurts the most</span>
           </h1>
 
           <p className="hero__subtitle">
-            DataAutomate unifies siloed data across your entire organisation and delivers
-            real-time, self-updating dashboards — so your teams can act on facts, not guesswork.
+            DataAutomate helps businesses and organisations build automated
+            solutions that tackle their most urgent pain points — every one
+            wrapped in just enough analytics to prove it's working and show what to
+            fix next.
           </p>
 
           <div className="hero__actions">
             <a href="#contact" className="hero__btn-primary">
-              Start Automating <ArrowRight size={16} />
+              Solve a Pain Point <ArrowRight size={16} />
             </a>
             <a href="#dashboard" className="hero__btn-ghost">
               <Play size={14} /> See Demo
